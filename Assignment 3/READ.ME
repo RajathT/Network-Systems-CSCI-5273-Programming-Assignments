@@ -1,0 +1,21 @@
+In this Assignment we have developed a Distributed File System.
+
+Commands Designed:
+
+PUT: This command lets us put the file into the server. Depending on what all servers are available the data is put into those servers.
+Here, we check for the servers and then at each command we send our credentials to the server and check for validation. Once validated with the credentials we then send the data to the server.
+The files are broken into 4 parts and depending on the Hash Value of the data the data is sent to different servers.
+
+GET: This command lets us get back the file from different servers, the idea here is that even if 2 servers have failed we can get the files from the other two servers(the other two having all the file parts). So, here we can see that even if servers are down we can get all the parts of the files.
+
+LIST: This command lets us List out all the files in the directory or subfolder.
+
+To run the system:
+>> gcc dfc.c -o client
+>> ./client dfc.conf
+
+To run the server:
+>> gcc dfs.c -o server
+>> ./server DFS1 10001
+
+In the same manner other server can be started by changing thier name and the port number. 
