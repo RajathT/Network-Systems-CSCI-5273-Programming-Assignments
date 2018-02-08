@@ -1,0 +1,45 @@
+Implementation of a TCP Web Server
+
+Language Used : C
+
+Web Server Implementaion:
+The TCP Server has to serve the requests by creating a process for every request and handling them individually.
+
+A Main Server Socket would be created for every socket connection, and subsequently a child process would be created to handle each request while the main socket keeps waiting for new processes.
+
+In this program I have used fork() function to create a new process for every request.
+
+Primarly the Methods that are handled are GET & POST.
+
+A file such as index.html is used as the default file if no file is mentioned.
+
+The HTTP Version that are handled are HTTP 1.0 and HTTP 1.1.
+
+The GET Method when requested returns the file with the requested data. Function send() sends the data to the web server.
+
+The POST Method when POST a url, then the requested file will is sent with the requested POSTDATA in <h1></h1> tags.
+
+The Errors handled are:
+501 Not Implemented:
+If Methods are other than GET or POST
+
+404 File Not Found
+If File not found
+
+400 Bad Request:
+Invalid URL
+Invalid Method
+Invalid HTTP Version
+
+How to run it?
+The file to be run is : "httpserver.c"
+Commands : gcc httpserver.c -o server
+Commands : ./server
+Run this file and open the browser and type: localhost:8080
+This will run a index.html file and a file will be shown on the browser with many pictures and file. You can access all the files on the webpage.
+To check for any errors such as HTTP VERSION or METHODS open a new terminal and type the following command:
+(echo -en "POST /index.html HTTP/1.1\nHost: localhost\nConnection: keep-alive\n\nPOSTDATA"; sleep 10) | telnet 127.0.0.1 8080
+Change the values to see the error handling.
+Thank you.
+
+
