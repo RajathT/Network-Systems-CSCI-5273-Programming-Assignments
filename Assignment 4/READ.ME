@@ -1,0 +1,24 @@
+****************PROXY SERVER IMPLEMENTATION*****************
+How to run the program?
+
+>>>To compile: gcc proxy.c -o output -lcrypto -lssl
+>>>To Run [compiled file <PORT> <TIMEOUT>]: ./output 10001 60
+
+How to test the program? 
+>>>Open Terminal and type:
+
+>>>telnet 127.0.0.1 10001
+>>>GET http://www.google.com HTTP/1.0
+
+Features:
+1. Multithreaded Proxy - Only supporting GET file. Else 400 Bad Request.
+2. Caching:
+	a. Timeout and Expiration - The files are given an expiration time mentioned by us.
+	b. Page Cache - The files are stored as txt files in the cache folder.
+	c. HOST - IP mapping - To save the system from having additional DNS calls we cache these files in our system.
+	d. Blocklist - The websites written into the blocklist file are not displayed - 403 Forbidden is displayed
+	
+
+
+
+
